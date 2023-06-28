@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body{
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #7d2ae8;
+
+  margin: auto;
+  
+}
+.container{
+   position: relative;
+  width: 110%;
+  background: #fff;
+  padding: 60px 50px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  perspective: 2700px;
+}
+.container .cover{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  background: red;
+  z-index: 98;
+  background: #7d2ae8;
+transition: all 1s ease;
+transform-origin: left;
+transform-style: preserve-3d;
+}
+.container .cover::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #7d2ae8;
+  opacity: 0.1;
+}
+.container .from-contect{
+display:flex;
+align-items: center;
+justify-content: space-between;
+
+}
+.container #flip:checked ~ .cover{
+transform: rotateY(-180deg);
+}
+.container .cover img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 12;
+  backface-visibility: hidden;
+}
+.container .cover .text{
+  position: absolute;
+  z-index: 111;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content: center;
+  color:rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+.container .from{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.from-contect .login-from,
+.from-contect .signup-from{
+width: calc(100% / 2 - 25px);
+}
+.from-contect .title {
+  position: relative;
+font-size: 24px;
+font-weight: 500;
+color: #333;
+}
+.from-contect .title:before{
+content: '';
+position: absolute;
+left: 0;
+bottom: 0;
+height: 3px;
+width: 25px;
+background: #7d2ae8;
+
+}
+from .signup-from .title:before{
+  width: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+from .from-contect .input-boxes{
+  margin-top: 30px;
+  padding-top: 1rem;
+}
+.input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 0 10px;
+  position: relative;
+ 
+}
+.from-contect .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 17px;
+  font-weight: 5oo;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.4s ease;
+}
+.from-contect .input-box input:focus,
+.from-contect .input-box input:valid{
+  border-color: #7d2ae8;
+}
+.from-contect .input-box i{
+  position: absolute;
+  color: #7d2ae8;
+  font-size: 17px;
+}
+from .from-contect .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+form .from-contect .text a{
+  text-decoration: none;
+}
+form .from-contect .text a:hover{
+  text-decoration: underline;
+}
+
+.from-contect .button input{
+  color: #fff;
+  background: #7d2ae8;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+
+}
+form .from-contect .button input:hover{
+  background: #5b13b9;
+}
+form .from-contect label{
+  color: #5b13b9;
+  cursor: pointer;
+}
+form .from-contect label:hover{
+  text-decoration: underline;
+}
+.set{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.dis{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+select{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.size{
+  margin-top: 1rem;
+  color: #7d2ae8;
 }
